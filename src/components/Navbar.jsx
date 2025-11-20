@@ -15,16 +15,16 @@ const navItems = [
 export default function Navbar() {
   const [open, setOpen] = useState(false)
 
-  const linkClass = ({ isActive }) => `px-3 py-2 rounded-md text-sm font-medium transition-colors ${
-    isActive ? 'bg-white text-[#0A2146]' : 'text-white/90 hover:bg-white/10'
+  const linkClass = ({ isActive }) => `px-3 py-2 rounded-md text-sm font-medium transition-all ${
+    isActive ? 'bg-white text-[#0A2146] shadow' : 'text-white/90 hover:bg-white/10'
   }`
 
   return (
-    <header className="sticky top-0 z-50 backdrop-blur bg-[#0A2146]/90 text-white border-b border-white/10">
+    <header className="sticky top-0 z-50 backdrop-blur bg-[#0A2146]/80 text-white border-b border-white/10 shadow">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
-          <Link to="/" className="flex items-center gap-3">
-            <div className="p-2 bg-white rounded-md">
+          <Link to="/" className="flex items-center gap-3 group">
+            <div className="p-2 bg-white rounded-md shadow ring-1 ring-black/5 group-hover:scale-105 transition-transform">
               <GraduationCap className="w-6 h-6 text-[#0A2146]" />
             </div>
             <div className="leading-tight">
@@ -41,7 +41,7 @@ export default function Navbar() {
             ))}
             <Link
               to="/admissions"
-              className="ml-3 inline-flex items-center px-4 py-2 rounded-md bg-white text-[#0A2146] font-semibold hover:bg-white/90 transition-colors"
+              className="ml-3 inline-flex items-center px-4 py-2 rounded-md bg-white text-[#0A2146] font-semibold hover:bg-white/90 transition-colors shadow"
             >
               Enroll Today
             </Link>
@@ -53,7 +53,7 @@ export default function Navbar() {
         </div>
 
         {open && (
-          <div className="md:hidden pb-4">
+          <div className="md:hidden pb-4 animate-in">
             <div className="grid gap-1">
               {navItems.map((n) => (
                 <NavLink key={n.to} to={n.to} className={linkClass} onClick={() => setOpen(false)} end={n.to === '/'}>
@@ -63,7 +63,7 @@ export default function Navbar() {
               <Link
                 to="/admissions"
                 onClick={() => setOpen(false)}
-                className="mt-2 inline-flex items-center justify-center px-4 py-2 rounded-md bg-white text-[#0A2146] font-semibold"
+                className="mt-2 inline-flex items-center justify-center px-4 py-2 rounded-md bg-white text-[#0A2146] font-semibold shadow"
               >
                 Apply Now
               </Link>

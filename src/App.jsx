@@ -8,6 +8,7 @@ import Admissions from './pages/Admissions'
 import StudentLife from './pages/StudentLife'
 import Contact from './pages/Contact'
 import News from './pages/News'
+import SplineBanner from './components/SplineBanner'
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
       </div>
 
       <Navbar />
+      <SplineBanner />
 
       <div className="flex-1">
         <Routes>

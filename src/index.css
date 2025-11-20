@@ -15,14 +15,17 @@
   html {
     font-family: var(--font-sans);
     font-feature-settings: "rlig" 1, "calt" 1;
+    scroll-behavior: smooth;
   }
 
   body {
-    @apply antialiased;
+    @apply antialiased bg-slate-50;
+    background-image: radial-gradient(1200px 600px at 10% -10%, rgba(59,130,246,0.08), transparent),
+      radial-gradient(1200px 600px at 110% 10%, rgba(34,211,238,0.08), transparent);
   }
 }
 
-/* Custom utility classes for shadcn/ui patterns */
+/* Motion utilities */
 @layer utilities {
   .animate-in {
     animation-name: animateIn;
@@ -43,4 +46,18 @@
     --tw-exit-translate-x: initial;
     --tw-exit-translate-y: initial;
   }
+
+  /* Floating blob animation for background accents */
+  .animate-blob {
+    animation: blob 18s infinite;
+  }
+  .animation-delay-2000 { animation-delay: 2s; }
+  .animation-delay-4000 { animation-delay: 4s; }
+}
+
+@keyframes blob {
+  0% { transform: translate(0px, 0px) scale(1); }
+  33% { transform: translate(30px, -50px) scale(1.1); }
+  66% { transform: translate(-20px, 20px) scale(0.9); }
+  100% { transform: translate(0px, 0px) scale(1); }
 }
